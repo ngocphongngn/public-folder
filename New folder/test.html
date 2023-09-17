@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ckeditor5/build/ckeditor.js"></script>
+</head>
+<body>
+    test hehe
+    <script>
+        let d = new Date();
+        document.body.innerHTML = "<h1>Time right now is: " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()
+        "</h1>"
+    </script>
+    <div>
+        <div id="editor" class="height: 300px; width: 500px">ew</div>
+    </div>
+    <div>
+        <button id="embebed-btn">embebed</button>
+        <div id="test-editor">
+
+        </div>
+        <o-embed url="https://www.youtube.com/embed/ozH6S3PAZaA"></o-embed>
+        <iframe src="https://www.youtube.com/embed/ozH6S3PAZaA"></iframe>
+        <!-- <iframe width="1257" height="707" src="https://www.youtube.com/embed/ozH6S3PAZaA" title="Flowers,
+             I&#39;m Good, Cupid ♫ New Pop Songs 2023 ♫ Top English Songs Cover Of Popular T
+             ikTok Songs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+              gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+    </div>
+    <script>
+        var editor ;
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) , {
+                mediaEmbed: {
+                    previewsInData: true
+                }
+            })
+            .then(editor => this.editor = editor)
+            .catch( error => {
+                console.error( error );
+            } );
+            
+            var input = document.getElementById('embebed-btn');
+            input.onclick = function(){
+                debugger
+                let html = editor.getData();
+                document.getElementById('test-editor').innerHTML = html;
+            };
+    </script>
+</body>
+</html>
